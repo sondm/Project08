@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace StateGame
 {
+    /// <summary>
+    /// Ўаг1. ќжидание выбора блока от игрока.
+    /// </summary>
     public class Step1 : BaseStatesGame
     {
-        public Step1 (ControlStateGame controlStateGame) : base
+        public Step1 (ControlStateGame controlStateGame) : base (controlStateGame)
         {
 
         }
