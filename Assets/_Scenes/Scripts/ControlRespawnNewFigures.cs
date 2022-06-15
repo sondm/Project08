@@ -37,12 +37,15 @@ public class ControlRespawnNewFigures : MonoBehaviour
             new Vector3(0, 0, 0),
             new Vector3(-1, 0, 0),
         });
+
         _dictFigures.Add(2, new Vector3[]
         {
             new Vector3(0, -1, 0),
             new Vector3(0, 0, 0),
             new Vector3(1, 0, 0),
-        }); _dictFigures.Add(3, new Vector3[]
+        }); 
+        
+        _dictFigures.Add(3, new Vector3[]
         {
             new Vector3(0, -1, 0),
             new Vector3(0, 0, 0),

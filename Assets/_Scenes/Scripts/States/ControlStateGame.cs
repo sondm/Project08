@@ -6,11 +6,16 @@ using StateGame;
 public class ControlStateGame : MonoBehaviour
 {
     public BaseStatesGame _currentState { get; private set; }
-    private Step1 _step1;
+    public Step1 _step1 { get; private set; }
+    public Step2 _step2 { get; private set; }
+
+    private GameObject _selectingFigure; // выбранная фигура
+
 
     private void Awake()
     {
         _step1 = new Step1(this);
+        _step2 = new Step2(this);
     }
 
     private void Start()
@@ -29,6 +34,9 @@ public class ControlStateGame : MonoBehaviour
         _currentState = newState;
         _currentState.EnterState();
     }
+
+    public void SetSelectFigure(GameObject obj) => _selectingFigure = obj;
+    public GameObject GetSelectFigure() => _selectingFigure;
 
 
 }

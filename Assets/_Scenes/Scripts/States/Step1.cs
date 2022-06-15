@@ -18,6 +18,9 @@ namespace StateGame
 
         }
 
+        // private
+        private SelectingFigure _selectingFigure = new SelectingFigure();
+
         public override void EnterState()
         {
             
@@ -30,7 +33,19 @@ namespace StateGame
 
         public override void UpdateState()
         {
-            
+            if (Input.GetMouseButtonDown(0))
+            {
+                // надо поймать объект
+                GameObject obj = _selectingFigure.GetObject(ListGameObjects.Instance.GetMainCamera());
+
+                // зафиксировать его (только при нажатой кнопке? или просто повесить на курсор?)
+                // пока просто вешаю на курсор
+                _controlStateGame.SetSelectFigure(obj);
+
+                // переключиться с этой фигурой на второй шаг,
+                // ожидающий установку фигуры или отмену и возврат ее на место
+                _controlStateGame.ChangeState(_controlStateGame._step2);
+            }
         }
     }
 }

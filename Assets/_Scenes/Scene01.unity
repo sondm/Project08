@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3731164, g: 0.380739, b: 0.35873148, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311605, g: 0.38073874, b: 0.3587312, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -498,7 +498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999666497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 5, z: 0}
+  m_LocalPosition: {x: 12, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544525259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 8, z: 0}
+  m_LocalPosition: {x: 12, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,7 +657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579599643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 2, z: 0}
+  m_LocalPosition: {x: 12, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -739,6 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037864004}
   - component: {fileID: 2037864005}
+  - component: {fileID: 2037864008}
   - component: {fileID: 2037864006}
   - component: {fileID: 2037864007}
   m_Layer: 0
@@ -807,3 +808,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a148ff173c0e1640bd1005392a41da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2037864008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037864003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1585073b2a3374f47807a43a9ed1056a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 963194225}
+  _prefabPopupDamage: {fileID: 0}
