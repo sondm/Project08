@@ -21,6 +21,8 @@ namespace StateGame
         public override void EnterState()
         {
             _controlFigure = _controlStateGame.GetSelectFigure();
+            _controlFigure.GetComponent<BoxCollider>().enabled = false; // коллайдер родителя нам уже не нужен
+            Debug.Log("get obj - " + _controlFigure.name);
         }
 
         public override void ExitState()
@@ -31,7 +33,34 @@ namespace StateGame
         public override void UpdateState()
         {
             // при перемещении фигура двигается на единицу
-            _controlFigure.transform.position = Input.mousePosition;
+            //TODO: доделать, пока фигура двигается не на единицу
+            Vector3 positionFigure = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            positionFigure.z = 0f;
+            _controlFigure.transform.position = positionFigure;
+
+            // поворачиваем фигуру для установки
+            if (Input.mouseScrollDelta.y > 0f)
+            {
+                Vector3 newAngles = _controlFigure.transform.eulerAngles;
+                newAngles += new Vector3(0f, 0f, 90f);
+                _controlFigure.transform.rotation = Quaternion.Euler(newAngles);
+            }
+            else if (Input.mouseScrollDelta.y < 0f)
+            {
+                Vector3 newAngles = _controlFigure.transform.eulerAngles;
+                newAngles += new Vector3(0f, 0f, -90f);
+                _controlFigure.transform.rotation = Quaternion.Euler(newAngles);
+            }
+
+            // лкм - устанавливаем фигуру, пкм - отмена, возврат фигуры на сове место
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Нажали левую кнопку");
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Нажали правую кнопку");
+            }
         }
     }
 }

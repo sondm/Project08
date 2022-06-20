@@ -25,7 +25,7 @@ public class ControlStateGame : MonoBehaviour
 
     private void Update()
     {
-        
+        _currentState.UpdateState();
     }
 
     public void ChangeState(BaseStatesGame newState)

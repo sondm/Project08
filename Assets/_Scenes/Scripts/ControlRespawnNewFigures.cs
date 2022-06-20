@@ -19,17 +19,19 @@ public class ControlRespawnNewFigures : MonoBehaviour
 
     // Локальные координаты для выставления кубиков в фигуре
     private Dictionary<int, Vector3[]> _dictFigures = new Dictionary<int, Vector3[]>();
+    private Dictionary<int, Vector3[]> _dictBoxCollider = new Dictionary<int, Vector3[]>();
 
     void Start()
     {
-        AddVectorsToDict();
+        AddVectorsToDictFigure();
+        AddVectorsToDictBoxCollider();
         Create(); //TODO: delete after test
     }
 
     /// <summary>
-    /// Заполняем словарь
+    /// Заполняем словарь фигур
     /// </summary>
-    private void AddVectorsToDict()
+    private void AddVectorsToDictFigure() // расположение фигур
     {
         _dictFigures.Add(1, new Vector3[]
         {
@@ -51,6 +53,30 @@ public class ControlRespawnNewFigures : MonoBehaviour
             new Vector3(0, 0, 0),
             new Vector3(0, 1, 0),
             new Vector3(0, 2, 0),
+        });
+    }
+
+    /// <summary>
+    /// Заполняем словарь положения коллайдера для фигур
+    /// </summary>
+    private void AddVectorsToDictBoxCollider() // первый вектр это положение, второй размер
+    {
+        _dictBoxCollider.Add(1, new Vector3[]
+        {
+            new Vector3(-.5f, -.5f, 0f),
+            new Vector3(2f, 2f, 1f),
+        });
+
+        _dictBoxCollider.Add(2, new Vector3[]
+        {
+            new Vector3(.5f, -.5f, 0f),
+            new Vector3(2f, 2f, 1f),
+        });
+
+        _dictBoxCollider.Add(3, new Vector3[]
+        {
+            new Vector3(0f, .5f, 0f),
+            new Vector3(1f, 4f, 1f),
         });
     }
 
@@ -90,5 +116,15 @@ public class ControlRespawnNewFigures : MonoBehaviour
 
         // даем родителю имя, в зависимости от выпавшей фигуры
         parent.name = $"figure{i}";
+
+        // устанавливаем тег
+        parent.tag = "Figure";
+
+        // добавляем коллайдер
+        parent.gameObject.AddComponent<BoxCollider>();
+
+        // корректируем размер и положение коллайдера
+        parent.GetComponent<BoxCollider>().center = _dictBoxCollider[i][0];
+        parent.GetComponent<BoxCollider>().size = _dictBoxCollider[i][1];
     }
 }

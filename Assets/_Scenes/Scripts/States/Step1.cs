@@ -36,14 +36,16 @@ namespace StateGame
             if (Input.GetMouseButtonDown(0))
             {
                 // надо поймать объект
-                GameObject obj = _selectingFigure.GetObject(ListGameObjects.Instance.GetMainCamera());
+                //GameObject obj = _selectingFigure.GetObject(ListGameObjects.Instance.GetMainCamera());
+                GameObject obj = _selectingFigure.GetObject(Camera.main);
+                if (obj == null) return;
 
                 // зафиксировать его (только при нажатой кнопке? или просто повесить на курсор?)
                 // пока просто вешаю на курсор
                 _controlStateGame.SetSelectFigure(obj);
 
-                // переключиться с этой фигурой на второй шаг,
-                // ожидающий установку фигуры или отмену и возврат ее на место
+                // переключиться с этой фигурой на второй шаг
+                Debug.Log($"Obj is find ({obj.name}), switch to step2");
                 _controlStateGame.ChangeState(_controlStateGame._step2);
             }
         }

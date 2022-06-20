@@ -7,7 +7,7 @@ namespace StateGame
     /// </summary>
     public class SelectingFigure : MonoBehaviour
     {
-        private float _raycastMaxDistance = 60f;
+        private float _raycastMaxDistance = 160f;
 
         public GameObject GetObject(Camera mainCamera)
         {
@@ -16,9 +16,9 @@ namespace StateGame
 
             if (Physics.Raycast(ray, out hit, _raycastMaxDistance))
             {
-                Debug.Log("Срабоатл GetObject");
                 if (hit.transform.tag == "Figure")
                 {
+                    Debug.Log("Click to obj - " + hit.transform.name);
                     return hit.transform.gameObject;
                 }
             }
