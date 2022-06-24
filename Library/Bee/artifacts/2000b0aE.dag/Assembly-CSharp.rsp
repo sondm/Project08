@@ -325,6 +325,7 @@
 "Assets/_Scenes/Scene01/ControlScene.cs"
 "Assets/_Scenes/Scene01/CreateGrid.cs"
 "Assets/_Scenes/Scripts/ControlRespawnNewFigures.cs"
+"Assets/_Scenes/Scripts/Cube/SearchFreeSpace.cs"
 "Assets/_Scenes/Scripts/ListGameObjects.cs"
 "Assets/_Scenes/Scripts/Settings.cs"
 "Assets/_Scenes/Scripts/States/BaseStatesGame.cs"

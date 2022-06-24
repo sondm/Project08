@@ -22,6 +22,7 @@ namespace StateGame
         {
             _controlFigure = _controlStateGame.GetSelectFigure();
             _controlFigure.GetComponent<BoxCollider>().enabled = false; // коллайдер родител€ нам уже не нужен
+            ScaleUpFigure(); // мен€ем размер
             Debug.Log("get obj - " + _controlFigure.name);
         }
 
@@ -61,6 +62,14 @@ namespace StateGame
             {
                 Debug.Log("Ќажали правую кнопку");
             }
+        }
+
+        /// <summary>
+        /// ¬озврат выбранной фигуры к ее нормальному размеру
+        /// </summary>
+        private void ScaleUpFigure()
+        {
+            _controlFigure.transform.localScale = Vector3.one;
         }
     }
 }
