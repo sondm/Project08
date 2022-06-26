@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cube
@@ -7,27 +5,28 @@ namespace Cube
     /// <summary>
     /// ѕоиск свободного места на этапе step2, дл€ установки фигуры на поле
     /// </summary>
+    /// 
+    [RequireComponent(typeof(ChangeMaterial))]
     public class SearchFreeSpace : MonoBehaviour
     {
-        [SerializeField] private MeshRenderer _meshFigure;
-        [SerializeField] private Material _materialGrey;
-        [SerializeField] private Material _materialRed;
+        private ChangeMaterial _changeMaterial;
+        private bool _readyToPlace = false; // true - фигура готова к размещению
 
-        void Start()
+        private void Start()
         {
-
+            _changeMaterial = GetComponent<ChangeMaterial>();
+            _changeMaterial.SetMaterial(ListEnums.CubeColor.grey);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            GetBackObj();
+            CheckBackObj();
         }
 
         /// <summary>
         /// ѕускаем луч "назад" в поиске уже установленной фигуры
         /// </summary>
-        private bool GetBackObj()
+        private bool CheckBackObj()
         {
             Ray ray = new Ray(transform.position, Vector3.forward);
             RaycastHit hit;
@@ -35,15 +34,23 @@ namespace Cube
             {
                 if (hit.transform.tag == "Cube")
                 {
-                    Debug.Log("¬низу куб");
-                    //_material.color = Color.blue;
-                    //_materialGrey.SetColor("Albedo", Color.blue);
-                    //_meshFigure.materials[0].SetColor("Albedo", Color.blue);
-                    _meshFigure.materials[0] = _materialRed;
+                    //Debug.Log("ћесто зан€то");
+                    _changeMaterial.SetMaterial(ListEnums.CubeColor.red);
+                    _readyToPlace = false;
+                    return true;
                 }
-                //else _material.color = Color.gray;
             }
+
+            if (_changeMaterial.GetColor() == ListEnums.CubeColor.red)
+                _changeMaterial.SetMaterial(ListEnums.CubeColor.grey);
+            _readyToPlace = true;
             return false;
         }
+
+        /// <summary>
+        /// ≈сть свободное пространство под кубиком или нет
+        /// </summary>
+        /// <returns>true = можно ставить</returns>
+        public bool ReadyToPlace() => _readyToPlace;
     }
 }

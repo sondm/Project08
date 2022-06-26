@@ -90,14 +90,22 @@ public class ControlRespawnNewFigures : MonoBehaviour
             // создаем родителя
             GameObject parentObj = new GameObject();
 
+            // добавляем родителю управляющий скрипт
+            ControlFigureParent cfp = parentObj.AddComponent<ControlFigureParent>();
+
             // выбираем и создаем случайную фигуру
             GetNewFigure(parentObj.transform);
 
             // ставим родителя на свое место
-            parentObj.transform.position = point.position;
+            cfp.SetHomeTransform(point);
+            cfp.MoveToHomePoint();
 
             // уменьшаем его размер
-            parentObj.transform.localScale = new Vector3(.5f, .5f, .5f);
+            cfp.ScaleDown();
+
+            // устонавливаем и включаем коллайдер
+            cfp.GetCollider();
+            cfp.EnableCollider();
         }
     }
 
@@ -105,13 +113,15 @@ public class ControlRespawnNewFigures : MonoBehaviour
     {
         // внутри родителя создаем кубики, составляя нужную нам фигуру
         int i = Random.Range(1, _dictFigures.Count + 1);
+        ControlFigureParent cfp = parent.GetComponent<ControlFigureParent>();
         foreach (Vector3 v3 in _dictFigures[i])
         {
-            // создаем кубик у нулевой координате родителя
+            // создаем кубик в нулевой координате родителя
             GameObject figure = Instantiate(_prefabForFigure, Vector3.zero, Quaternion.identity, parent);
 
             // двигаем его на свое место
             figure.transform.localPosition = v3;
+            cfp.AddChild(figure);
         }
 
         // даем родителю имя, в зависимости от выпавшей фигуры

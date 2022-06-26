@@ -8,6 +8,7 @@ public class ControlStateGame : MonoBehaviour
     public BaseStatesGame _currentState { get; private set; }
     public Step1 _step1 { get; private set; }
     public Step2 _step2 { get; private set; }
+    public Step3 _step3 { get; private set; }
 
     private GameObject _selectingFigure; // выбранная фигура
 
@@ -16,6 +17,7 @@ public class ControlStateGame : MonoBehaviour
     {
         _step1 = new Step1(this);
         _step2 = new Step2(this);
+        _step3 = new Step3(this);
     }
 
     private void Start()
