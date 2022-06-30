@@ -20,7 +20,7 @@ public class CheckFieldStep3
                 countInLine++;
             }
         }
-        Debug.Log($"В линии найдено {countInLine} кубиков");
+        Debug.Log($"В линии найдено {countInLine} кубика(ов)");
         if (countInLine == 10)
         {
             //TODO: ОСТАНОВИЛСЯ ТУТ

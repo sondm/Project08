@@ -1,10 +1,5 @@
-Library\Bee\artifacts\mvdfrm\Unity.EditorCoroutines.Editor.ref.dll_6284888256C61BFC.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Performance.Profile-Analyzer.Editor.ref.dll_0D906C8E4382C50C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.PlasticSCM.Editor.ref.dll_169D1CB9FC9A5F17.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Rider.Editor.ref.dll_0021F9A8ACF324BE.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll_4E373D3FC4288114.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll_31F4634DD076CB61.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.TestTools.CodeCoverage.Editor.ref.dll_A82062BCD91BAC5A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.Editor.ref.dll_842CABBDDB800435.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.ref.dll_F0BA109017870B3C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Timeline.Editor.ref.dll_D816E13C0F2F8EB3.mvfrm
@@ -101,4 +96,4 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_EB7C84EE6286D025.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Android.Gradle.dll_62665079E9FADA97.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Android.Types.dll_896D64135EDA8B95.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WebGLModule.dll_B82473826492939E.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_FAAD8D3DE29AA930.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_8F5B33B299CBC592.mvfrm

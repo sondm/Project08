@@ -16,6 +16,9 @@ namespace StateGame
 
         public override void EnterState()
         {
+            CheckFieldStep3 checkField = new CheckFieldStep3();
+            checkField.StartCheck(); //TODO: в этот момент кубики еще не освобождены от родителя, и соответственно ось Z у них -2, проверка их не видит
+            _controlStateGame.ChangeState(_controlStateGame._step1);
         }
 
         public override void ExitState()

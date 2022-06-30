@@ -45,6 +45,9 @@ public class ControlFigureParent : MonoBehaviour
     {
         foreach (GameObject child in _childrenList)
         {
+            Vector3 positionForPlace = child.transform.position; // новая позиция для размещения
+            positionForPlace.z = 0;
+            child.transform.position = positionForPlace;
             child.transform.parent = null;
             Destroy(gameObject);
         }
