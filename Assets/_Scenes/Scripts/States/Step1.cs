@@ -45,7 +45,7 @@ namespace StateGame
                 _controlStateGame.SetSelectFigure(obj);
 
                 // переключиться с этой фигурой на второй шаг
-                Debug.Log($"Obj is find ({obj.name}), switch to step2");
+                //Debug.Log($"Obj is find ({obj.name}), switch to step2");
                 _controlStateGame.ChangeState(_controlStateGame._step2);
             }
         }

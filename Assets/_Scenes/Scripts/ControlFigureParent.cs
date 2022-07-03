@@ -45,11 +45,22 @@ public class ControlFigureParent : MonoBehaviour
     {
         foreach (GameObject child in _childrenList)
         {
+            child.transform.parent = null;
             Vector3 positionForPlace = child.transform.position; // новая позиция для размещения
             positionForPlace.z = 0;
             child.transform.position = positionForPlace;
-            child.transform.parent = null;
-            Destroy(gameObject);
+            child.transform.name = "Cube-"+child.transform.position.ToString();
         }
+        Destroy(gameObject);
+    }
+
+    public List<GameObject> GetObkForCheckZPosition()
+    {
+        List<GameObject> objsList = new List<GameObject>();
+        foreach (GameObject child in _childrenList)
+        {
+            objsList.Add(child);
+        }
+        return objsList;
     }
 }

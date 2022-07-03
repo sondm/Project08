@@ -18,7 +18,7 @@ namespace StateGame
             {
                 if (hit.transform.tag == "Figure")
                 {
-                    Debug.Log("Click to obj - " + hit.transform.name);
+                    //Debug.Log("Click to obj - " + hit.transform.name);
                     return hit.transform.gameObject;
                 }
             }

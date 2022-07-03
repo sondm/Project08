@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace StateGame
@@ -29,9 +30,8 @@ namespace StateGame
         public override void UpdateState()
         {
             // при перемещении фигура двигается на единицу
-            //TODO: доделать, пока фигура двигается не на единицу
             Vector3 positionFigure = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            positionFigure.z = -2f;
+            positionFigure.z = -1f;
 
             // округляем позицию
             positionFigure = new Vector3(
@@ -59,12 +59,15 @@ namespace StateGame
             // лкм - устанавливаем фигуру, пкм - отмена, возврат фигуры на свое место
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Нажали левую кнопку");
+                List<GameObject> ListZPosition = new List<GameObject>();
+                //Debug.Log("Нажали левую кнопку");
                 ControlFigureParent cfp = _controlFigure.GetComponent<ControlFigureParent>();
+                ListZPosition = cfp.GetObkForCheckZPosition();
                 if (cfp.AcceptChildObject())
                 {
-                    Debug.Log("Можно разместить фигуру");
+                    //Debug.Log("Можно разместить фигуру");
                     cfp.PlaceObjInGame();
+                    CheckZPosition(ListZPosition);
                 }
                 else Debug.Log("Тут нельзя разместить фигуру");
 
@@ -73,7 +76,7 @@ namespace StateGame
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                Debug.Log("Нажали правую кнопку");
+                //Debug.Log("Нажали правую кнопку");
                 // при отмене надо вернуть все на свои места
                 ControlFigureParent cfp = _controlFigure.GetComponent<ControlFigureParent>();
                 cfp.MoveToHomePoint(); // фигуру на первоначальную точку
@@ -82,6 +85,23 @@ namespace StateGame
                 cfp.EnableCollider();
                 _controlStateGame.SetSelectFigure(null); // убрать фигуру из запоминалки
                 _controlStateGame.ChangeState(_controlStateGame._step1); // возвращаемся к первому шагу
+            }
+        }
+        private void CheckZPosition(List<GameObject> objs)
+        {
+            bool zPosition = false;
+            int x = 0;
+            int count = 0;
+            while (zPosition == false && count < 15)
+            {
+                foreach (var item in objs)
+                {
+                    //Debug.Log($"Position Z of {item} = {item.transform.position.z}");
+                    //Debug.Log($"tag {item.name} = {item.transform.tag}");
+                    if (item.transform.position.z == 0) x++;
+                }
+                count ++;
+                if (x==3) zPosition = true;
             }
         }
     }

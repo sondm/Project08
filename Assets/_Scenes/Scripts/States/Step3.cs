@@ -16,17 +16,21 @@ namespace StateGame
 
         public override void EnterState()
         {
-            CheckFieldStep3 checkField = new CheckFieldStep3();
-            checkField.StartCheck(); //TODO: в этот момент кубики еще не освобождены от родителя, и соответственно ось Z у них -2, проверка их не видит
-            _controlStateGame.ChangeState(_controlStateGame._step1);
         }
 
         public override void ExitState()
         {
+            // На выходе с этого этапа надо проверить, остались ли фигуры для добавления.
+            // Если их нет, то создать все три.
         }
 
         public override void UpdateState()
         {
+            // убирать это в блок EnterState НЕЛЬЗЯ, линия не проходит проверку, только установленные 
+                //кубики не попадают в проверку, только на следующий ход
+            CheckFieldStep3 checkField = new CheckFieldStep3();
+            checkField.StartCheck();
+            _controlStateGame.ChangeState(_controlStateGame._step1);
         }
     }
 }
