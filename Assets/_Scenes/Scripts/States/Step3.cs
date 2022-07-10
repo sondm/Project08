@@ -22,13 +22,15 @@ namespace StateGame
         {
             // Ќа выходе с этого этапа надо проверить, остались ли фигуры дл€ добавлени€.
             // ≈сли их нет, то создать все три.
+            _controlStateGame.CreateNewFigures();
         }
 
         public override void UpdateState()
         {
             // убирать это в блок EnterState Ќ≈Ћ№«я, лини€ не проходит проверку, только установленные 
-                //кубики не попадают в проверку, только на следующий ход
-            CheckFieldStep3 checkField = new CheckFieldStep3();
+            //кубики не попадают в проверку, только на следующий ход
+            Debug.Log($"—сылка дл€ передачи = {_controlStateGame.GetDestroyCubes()}");
+            CheckFieldStep3 checkField = new CheckFieldStep3(_controlStateGame.GetDestroyCubes());
             checkField.StartCheck();
             _controlStateGame.ChangeState(_controlStateGame._step1);
         }

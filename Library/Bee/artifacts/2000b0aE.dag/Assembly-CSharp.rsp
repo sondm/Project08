@@ -326,6 +326,7 @@
 "Assets/_Scenes/Scripts/ControlFigureParent.cs"
 "Assets/_Scenes/Scripts/ControlRespawnNewFigures.cs"
 "Assets/_Scenes/Scripts/Cube/ChangeMaterial.cs"
+"Assets/_Scenes/Scripts/Cube/DestroyCubes.cs"
 "Assets/_Scenes/Scripts/Cube/SearchFreeSpace.cs"
 "Assets/_Scenes/Scripts/ListEnums.cs"
 "Assets/_Scenes/Scripts/ListGameObjects.cs"

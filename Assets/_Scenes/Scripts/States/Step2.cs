@@ -69,7 +69,11 @@ namespace StateGame
                     cfp.PlaceObjInGame();
                     CheckZPosition(ListZPosition);
                 }
-                else Debug.Log("Тут нельзя разместить фигуру");
+                else
+                {
+                    Debug.Log("Тут нельзя разместить фигуру");
+                    return;
+                }
 
                 _controlStateGame.SetSelectFigure(null); // убрать фигуру из запоминалки
                 _controlStateGame.ChangeState(_controlStateGame._step3); // переходим к следующему шагу

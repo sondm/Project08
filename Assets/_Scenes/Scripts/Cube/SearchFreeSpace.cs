@@ -28,6 +28,7 @@ namespace Cube
         /// </summary>
         private bool CheckBackObj()
         {
+            // Первая проверка, есть ли сзади кубик
             Ray ray = new Ray(transform.position, Vector3.forward);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 20))
@@ -41,6 +42,19 @@ namespace Cube
                 }
             }
 
+            // Втора проверка, проверяем границы игрового поля
+            if (transform.position.x < -.1f || transform.position.x > 9f)
+            {
+                _readyToPlace=false;
+                return true;
+            }    
+            else if (transform.position.y < -.1f || transform.position.y > 9f)
+            {
+                _readyToPlace = false;
+                return true;
+            }
+            
+            // Меняем цвет в зависимости от разрешения
             if (_changeMaterial.GetColor() == ListEnums.CubeColor.red)
                 _changeMaterial.SetMaterial(ListEnums.CubeColor.grey);
             _readyToPlace = true;

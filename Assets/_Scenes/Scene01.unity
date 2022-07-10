@@ -249,6 +249,7 @@ MonoBehaviour:
   _meshFigure: {fileID: 103942887}
   _materialGrey: {fileID: 2100000, guid: 25782ff554187c5478382857adebbd53, type: 2}
   _materialRed: {fileID: 2100000, guid: 1e9ce5cd916e7ef4d9bb0ba76f713025, type: 2}
+  _materialGreen: {fileID: 2100000, guid: 3df50b8b7e8e0ea4d85c08d5a15dc73a, type: 2}
 --- !u!1 &122063749
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +761,7 @@ MonoBehaviour:
   _meshFigure: {fileID: 1790613778}
   _materialGrey: {fileID: 2100000, guid: 25782ff554187c5478382857adebbd53, type: 2}
   _materialRed: {fileID: 2100000, guid: 1e9ce5cd916e7ef4d9bb0ba76f713025, type: 2}
+  _materialGreen: {fileID: 0}
 --- !u!114 &1790613776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037864004}
   - component: {fileID: 2037864005}
+  - component: {fileID: 2037864009}
   - component: {fileID: 2037864008}
   - component: {fileID: 2037864006}
   - component: {fileID: 2037864007}
@@ -977,3 +980,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 963194227}
   _prefabPopupDamage: {fileID: 0}
+--- !u!114 &2037864009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037864003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084519bc26322594dacad924d11d8a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

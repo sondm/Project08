@@ -85,6 +85,7 @@ public class ControlRespawnNewFigures : MonoBehaviour
     /// </summary>
     public void Create()
     {
+        if (CheckPlaceBeforeSpawnNewFigures() == false) return;
         foreach (Transform point in _points)
         {
             // создаем родител€
@@ -136,5 +137,25 @@ public class ControlRespawnNewFigures : MonoBehaviour
         // корректируем размер и положение коллайдера
         parent.GetComponent<BoxCollider>().center = _dictBoxCollider[i][0];
         parent.GetComponent<BoxCollider>().size = _dictBoxCollider[i][1];
+    }
+
+    /// <summary>
+    /// ѕроверить место, перед созданием новых фигур
+    /// </summary>
+    public bool CheckPlaceBeforeSpawnNewFigures()
+    {
+        // вернем false, если хот€ бы одно место еще зан€то
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(new Vector3(12, 0f, 0f), Vector3.up, 10f);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].transform.tag == "Cube")
+            {
+                Debug.Log($"≈ще {hits.Length} фигур надо выставить");
+                return false;
+            }
+        }
+        Debug.Log("‘игур нет, создаем новые");
+        return true;
     }
 }

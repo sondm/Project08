@@ -8,5 +8,6 @@ public static class ListEnums
     {
         grey,
         red,
+        green,
     }
 }

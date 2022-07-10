@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateGame;
 
+[RequireComponent(typeof(ControlRespawnNewFigures))]
+[RequireComponent(typeof(Cube.DestroyCubes))]
 public class ControlStateGame : MonoBehaviour
 {
     public BaseStatesGame _currentState { get; private set; }
@@ -11,6 +13,10 @@ public class ControlStateGame : MonoBehaviour
     public Step3 _step3 { get; private set; }
 
     private GameObject _selectingFigure; // выбранная фигура
+
+    private ControlRespawnNewFigures _controlRespawnNewFigures;
+
+    private Cube.DestroyCubes _destroyCubes;
 
 
     private void Awake()
@@ -23,6 +29,8 @@ public class ControlStateGame : MonoBehaviour
     private void Start()
     {
         ChangeState(_step1);
+        _controlRespawnNewFigures = gameObject.GetComponent<ControlRespawnNewFigures>();
+        _destroyCubes = gameObject.GetComponent<Cube.DestroyCubes>();
     }
 
     private void Update()
@@ -39,6 +47,6 @@ public class ControlStateGame : MonoBehaviour
 
     public void SetSelectFigure(GameObject obj) => _selectingFigure = obj;
     public GameObject GetSelectFigure() => _selectingFigure;
-
-
+    public void CreateNewFigures() => _controlRespawnNewFigures.Create();
+    public Cube.DestroyCubes GetDestroyCubes() => _destroyCubes;
 }

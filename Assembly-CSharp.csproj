@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Scenes\Scripts\ListEnums.cs" />
     <Compile Include="Assets\_Scenes\Scripts\States\ControlStateGame.cs" />
     <Compile Include="Assets\_Scenes\Scripts\Cube\SearchFreeSpace.cs" />
+    <Compile Include="Assets\_Scenes\Scripts\Cube\DestroyCubes.cs" />
     <Compile Include="Assets\_Scenes\Scripts\ListGameObjects.cs" />
     <Compile Include="Assets\_Scenes\Scripts\CheckFieldStep3.cs" />
     <Compile Include="Assets\_Scenes\Scripts\States\Step1.cs" />
