@@ -9,6 +9,8 @@ public class ControlFigureParent : MonoBehaviour
     private Transform _homePoint; // “очка, на которой создали фигуру изначально.
     private BoxCollider _boxCollider;
     private List<GameObject> _childrenList = new List<GameObject>();
+    private int _scoreForPlaceFigure; // очки, которые будут начислены за размещение фигуры на поле
+    //TODO: ќ—“јЌќ¬»Ћ—я “”“, надо прописать количество очков за каждую фигуру, которые начисл€ютс€ при размещении
 
     public void SetHomeTransform(Transform tr) => _homePoint = tr;
     public void MoveToHomePoint() => gameObject.transform.position = _homePoint.position;
